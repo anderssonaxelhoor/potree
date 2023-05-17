@@ -156,14 +156,14 @@ img {
 	height: 100%; /* takes the 100 % height of its container (.box div)*/
 }
 
-#potree_sidebar_container{
+#potree_sidebar_container{/*Håller sidomenyn*/
 	position:	fixed;
 	z-index:	10;
 	top: 10%;
 	left: 1%;
 	width:		350px;
 	max-width: 20%;
-	height:		auto;
+	height:		auto; 
 	max-height: 80dvh;
 	overflow-y:	scroll;
 	/*overflow-x: scroll;*/
@@ -182,7 +182,7 @@ img {
 	height: auto;
 	
 }
-#sidebar_header{
+#sidebar_header{ /*Håller headern som har projektnamnet*/
 	height: 52px;
 	/*text-align: center;*/
 	font-weight: bold;
@@ -238,7 +238,7 @@ img {
 	background-color: red;
 }
 
-#potree_description{
+#potree_description{ /* Håller "powered by swescan" i hörnet*/
 	position: absolute; 
 	bottom: 1%; 
 	right: 1%; 
@@ -250,7 +250,7 @@ img {
 	
 }
 
-#potree_description2{ /*
+#potree_description2{ /*Där koordinatsystemet står i vewern*/
 	position: absolute; 
 	bottom: 1%; 
 	right: 11%; 
