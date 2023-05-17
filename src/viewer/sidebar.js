@@ -244,9 +244,11 @@ export class Sidebar{
 			Potree.resourcePath + '/ikoner/sw_profile2.png',
 			'[title]tt.height_profile',
 			() => {
-				$('#menu_measurements').next().slideDown(); ;
+				$('#menu_measurements').next().slideDown();
+				
 				let profile = this.profileTool.startInsertion();
-
+				$('#menu_measurements').next().show();
+				$('#menu_measurements').toggleClass('active');
 				let measurementsRoot = $("#jstree_scene").jstree().get_json("measurements");
 				let jsonNode = measurementsRoot.children.find(child => child.data.uuid === profile.uuid);
 				$.jstree.reference(jsonNode.id).deselect_all();
@@ -259,9 +261,10 @@ export class Sidebar{
 			Potree.resourcePath + '/icons/annotation.svg',
 			'[title]tt.annotation',
 			() => {
-				$('#menu_measurements').next().slideDown(); ;
+				$('#menu_measurements').next().slideDown();
 				let annotation = this.viewer.annotationTool.startInsertion();
-
+				$("#menu_scene").next().show();
+				$("#menu_scene").toggleClass('active');
 				let annotationsRoot = $("#jstree_scene").jstree().get_json("annotations");
 				let jsonNode = annotationsRoot.children.find(child => child.data.uuid === annotation.uuid);
 				$.jstree.reference(jsonNode.id).deselect_all();

@@ -55,7 +55,7 @@
 	box-sizing: border-box;
   }
 
-.modal{
+/* .modal{
 	position: fixed;
 	top: 50%;
 	left: 50%;
@@ -65,7 +65,7 @@
 	background-color: white;
 	width: 500px;
 	max-width: 80%;
-}
+} */
 .modal-active{
 	transform: translate(-50%, -50%) scale(1);
 }
@@ -180,10 +180,22 @@ img {
 	font-size:			1.25em;
 	object-fit:contain;
 	height: auto;
+	
 }
-.sidebar_header{
-	height: auto;
+#sidebar_header{
+	height: 52px;
+	/*text-align: center;*/
+	font-weight: bold;
+	font-size: 20px;
+	font-family: "Raleway", sans-serif;
+	background: #fff;
+	
+	padding-left:16px;
+	padding-top: 16px;
+	
 }	
+
+
 
 .potree_failpage{
 	width: 100%;
@@ -238,7 +250,7 @@ img {
 	
 }
 
-#potree_description2{
+#potree_description2{ /*
 	position: absolute; 
 	bottom: 1%; 
 	right: 11%; 

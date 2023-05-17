@@ -152,7 +152,9 @@ export class Scene extends EventDispatcher{
 	};
 
 	removeOrientedImages(images){
-		console.log("r")
+		
+		console.log(images.length + " bilder tas bort");
+		
 		let index = this.orientedImages.indexOf(images);
 		if (index > -1) {
 			this.orientedImages.splice(index, 1);

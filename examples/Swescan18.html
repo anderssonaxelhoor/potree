@@ -16,13 +16,16 @@
 		
 	//Sätt in önskade länkar/text här:
 	//PUNKTMOLN. Tänk på att ha allt i samma mapp.
-	punktmoln = "../pointclouds/testardetta/metadata.json"
+	//"../pointclouds/classtest/pointclouds/letcher/metadata.json"
+	punktmoln = "../pointclouds/classtest/pointclouds/letcher/metadata.json"
+	projektnamn = "Bohus"
 	kordinatsystem = "SWEREF99TM - RH2000" //Vilket kordinatsystem som ska anges på skärmen
-
-	//Alternativ klassificering. Lämna som "custom = {}" om du inte vill ha alternativ klassificering, se ClassificationScheme.js för orginalklassificering"
+	//punktmoln2 =""
+	//projektnamn2 = ""
+	//Alternativ klassificering. Lämna som "custom = {}" alt kommenteraom du inte vill ha alternativ klassificering, se ClassificationScheme.js för orginalklassificering"
 	custom = {
-		/*4:       { visible: true, name: 'medium vegetation' , color: [0.0,  0.8,  0.0,  1.0] },
-		DEFAULT: { visible: true, name: 'default'           , color: [0.3,  0.6,  0.6,  0.5] },*/
+		4:       { visible: true, name: 'medium vegetation' , color: [0.0,  0.8,  0.0,  1.0] },
+		DEFAULT: { visible: true, name: 'default'           , color: [0.3,  0.6,  0.6,  0.5] },
 		}
 
 	//Oreinted Images. Viktigt att att bilderna är samma mapp som filerna nedan
@@ -31,7 +34,7 @@
 	
 
 	
-	
+	// Nedanstående gör så att om custom(alternativa klassificeringslistan som finns ovan) är tom så syns inte knapparna i botten
 	window.onload = function(){
 			var buttons = document.getElementsByClassName("buttons");
 			
@@ -171,7 +174,7 @@ position: absolute;
 		
 		// plane
 		//Potree.loadPointCloud("../pointclouds/C/dev/epalinges/epalinges/als_converted/cloud.js", "epalinges", e => {
-		Potree.loadPointCloud(punktmoln, "Bohus", function(e){
+		Potree.loadPointCloud(punktmoln, projektnamn, function(e){
 			viewer.scene.addPointCloud(e.pointcloud);
 			
 			let material = e.pointcloud.material;
@@ -179,9 +182,10 @@ position: absolute;
 			material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
 			
 			viewer.fitToScreen();
+			// run();
 		});
 		//Ifall man vill ha flera punktmoln
-/* 		Potree.loadPointCloud(punktmoln, "Bohus", function(e){
+/* 		Potree.loadPointCloud(punktmoln2,Projektnamn2, function(e){
 			viewer.scene.addPointCloud(e.pointcloud);
 			
 			let material = e.pointcloud.material;
@@ -190,6 +194,25 @@ position: absolute;
 			
 			viewer.fitToScreen();
 		}); */
+
+		/* async function run(){
+
+				proj4.defs("WGS84", "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs");
+				proj4.defs("pointcloud", viewer.getProjection());
+				let transform = proj4("WGS84", "pointcloud");
+
+				let params = {
+				transform: transform
+				};
+
+			// this file contains coordinates, orientation and filenames of the images:
+			// http://5.9.65.151/mschuetz/potree/resources/pointclouds/helimap/360/Drive2_selection/coordinates.txt
+			Potree.Images360Loader.load("http://5.9.65.151/mschuetz/potree/resources/pointclouds/helimap/360/Drive2_selection", viewer, params).then( images => {
+				viewer.scene.add360Images(images);
+			});
+
+			viewer.mapView.showSources(false);
+		} */
 	</script>
 	<!--Om man vill lägga till bildfunktionen-->
 	<script type="module">
@@ -210,6 +233,7 @@ position: absolute;
 				 Potree.OrientedImageLoader.load(cameraParamsPath1, imageParamsPath1, viewer).then( images => {
 					viewer.scene.addOrientedImages(images);
 					
+					
 				}); 
 		</script>
 
@@ -226,15 +250,7 @@ position: absolute;
 		viewer.setClassifications(custom);
 	}
 
-	window.setRandomScheme = function(){
-		const scheme = {};
 
-		for(let i = 0; i < 32; i++){
-			scheme[i] = { visible: true, name: `random:_${i}`, color: [Math.random(), Math.random(), Math.random(), 1.0] }; // random classes
-		}
-
-		viewer.setClassifications(scheme);
-	}
 
 </script>
 
@@ -437,6 +453,7 @@ position: absolute;
 				$.jstree.reference(jsonNode.id).deselect_all();
 				$.jstree.reference(jsonNode.id).select_node(jsonNode.id);
 				$("#menu_scene").next().show();
+				$("#menu_scene").toggleClass('active');
 			//viewer.toggleSidebar();
 			});
 		//Remove measurements

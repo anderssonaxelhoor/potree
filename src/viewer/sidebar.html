@@ -1,11 +1,18 @@
 <head>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script>
+		projectname = window.parent.projektnamn;
+		
+	</script>
 </head>
-<body></body>
+<body>
 <div id="sidebar_root" class="sidebar_root">
     <div id="sidebar_header">
-        
-            Bohus
+		<script>
+			var dd = document.getElementById("sidebar_header");
+        dd.textContent = projectname;
+		</script>
+            
         
     </div>
     <div>
@@ -249,8 +256,9 @@
         <!-- ABOUT -->
         <h3 id="menu_about"><span data-i18n="tb.about_opt"></span><i class="fa fa-angle-down" Style="float: right;"></i></h3>
         <div>
-            <P>Classification according to ASRP LAS 1.4 R15 Standard
-				<BR>
+            <P>Classification according to ASPRS LAS 1.4 R15 Standard</P>
+			<P style="font-size: 0.5em;">
+				
 				<BR>
 				Copyright (c) 2011-2020, Markus Schütz
 				<BR>	
@@ -279,11 +287,10 @@
 				(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 				SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 				<BR>
-				
 				The views and conclusions contained in the software and documentation are those
 				of the authors and should not be interpreted as representing official policies,
 				either expressed or implied, of the FreeBSD Project.
-				</P>
+			</P>
         </div>
 
 

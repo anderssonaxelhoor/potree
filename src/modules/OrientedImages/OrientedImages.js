@@ -404,7 +404,11 @@ export class OrientedImageLoader{
 			viewer.scene.view.setView(newCamPos, newCamTarget, 500, () => {
 				orientedImageControls.capture(image);
 			});
-
+			/* const selectedImage = image;
+			const otherImages = orientedImages.filter((image) => image !==selectedImage);
+			
+			viewer.scene.removeOrientedImages(otherImages); */ // FÅR INTE ATT FUNKA:(
+			  
 			if(image.texture === null){
 
 				const target = image;
